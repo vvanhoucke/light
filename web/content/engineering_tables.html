@@ -1,0 +1,323 @@
+<section id="section-engineering-tables" class="ste-section report-section">
+  <header class="section-header">
+    <div class="section-tag">Section 7 — Subsystem Engineering</div>
+    <h2 class="section-title">Subsystem Engineering Parameter Tables and Technology Taxonomy</h2>
+    <p class="section-lead">
+      This section details the quantitative parameters across the four key subsystems.
+      The tables distinguish near-term baseline technologies from speculative breakthrough targets.
+      Each entry lists governing physical equations, limiting factors, and mission failure modes.
+    </p>
+  </header>
+
+  <article class="engineering-tables-content">
+    <!-- Table 5.1: Spacecraft Design -->
+    <section class="subsystem-table-block" id="table-spacecraft-design">
+      <header class="subsystem-table-header">
+        <span class="badge badge-trl-split">TRL 4–6 vs TRL 1–3</span>
+        <h3>Table 5.1: Parameters for Spacecraft Subsystems</h3>
+        <p>
+          The spacecraft must reach relativistic speeds to create large optical delay times.
+          This table shows the propulsion, structural, thermal, and shielding metrics.
+        </p>
+      </header>
+
+      <div class="table-responsive">
+        <table class="ste-table data-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Parameter / Capability</th>
+              <th style="width: 22%;">Near-Term Baseline (TRL 4–6)</th>
+              <th style="width: 22%;">Speculative Target (TRL 1–3)</th>
+              <th style="width: 20%;">Governing Equation / Limit</th>
+              <th style="width: 18%;">Failure Mode / Vulnerability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Propulsion Mechanism</strong></td>
+              <td>Laser Metasurface Sail driven by beamed energy</td>
+              <td>Relativistic Direct Fusion Drive or Antimatter Rocket</td>
+              <td>\(F_{\text{rad}} = \frac{2 P_{\text{laser}}}{c} \frac{1-\beta}{1+\beta}\)</td>
+              <td>Beam slip, tumbling, and mass ratio explosion</td>
+            </tr>
+            <tr>
+              <td><strong>Maximum Coordinate Velocity</strong></td>
+              <td>\(\beta = 0.10 - 0.20\) (30,000 to 60,000 km/s)</td>
+              <td>\(\beta = 0.50 - 0.99+\) (150,000 to 297,000 km/s)</td>
+              <td>\(\beta = \frac{1 - D_2}{1 + D_2}\), \(\gamma = \frac{1}{\sqrt{1 - \beta^2}}\)</td>
+              <td>Relativistic dust ablation and Rindler event horizon cutoff</td>
+            </tr>
+            <tr>
+              <td><strong>Total Spacecraft Mass</strong></td>
+              <td>1.0 g to 5.0 g (Nanocraft architecture)</td>
+              <td>100 kg to 1000 kg (Heavy instrumented platform)</td>
+              <td>\(a = F / m\), \(x_{\text{burn}} = \frac{c^2}{\alpha}(\gamma - 1)\)</td>
+              <td>Acceleration load limits and structural buckling</td>
+            </tr>
+            <tr>
+              <td><strong>Sail Area Density</strong></td>
+              <td>\(\sigma = 0.5 - 1.0\text{ g/m}^2\) (\(\text{Si}_3\text{N}_4\) nanolayers)</td>
+              <td>\(\sigma < 0.1\text{ g/m}^2\) (Graphene monolayer membrane)</td>
+              <td>Substrate thickness \(t \ge 50\text{ nm}\)</td>
+              <td>Membrane tearing and acoustic resonance destruction</td>
+            </tr>
+            <tr>
+              <td><strong>ADCS Centering Mechanism</strong></td>
+              <td>Passive optomechanical metasurface phase gradients</td>
+              <td>Active electrostatic and metasurface phase control</td>
+              <td>\(\boldsymbol{\tau} = \mathbf{F}_{\text{rad}} \times \Delta\mathbf{x}\)</td>
+              <td>Centration divergence and rotational tumble</td>
+            </tr>
+            <tr>
+              <td><strong>Thermal Dissipation and Limits</strong></td>
+              <td>Radiative cooling, \(R \ge 0.9999\), \(T_{\text{eq}} \le 300\text{ K}\)</td>
+              <td>Active cryogenic circulating loop, \(T_{\text{eq}} \le 100\text{ K}\)</td>
+              <td>\(T_{\text{eq}} = \left[\frac{(1-R) P_{\text{inc}}}{2 \epsilon \sigma_{\text{SB}} A}\right]^{1/4}\)</td>
+              <td>Thermal runaway and coating delamination above 500 K</td>
+            </tr>
+            <tr>
+              <td><strong>Interstellar Dust Shielding</strong></td>
+              <td>3-layer sacrificial beryllium Whipple bumper</td>
+              <td>5-Tesla superconducting magnetic shield</td>
+              <td>\(E_{\text{kin}} = (\gamma - 1) m_{\text{grain}} c^2\)</td>
+              <td>Explosive micro-cratering and destruction of mirror surface flatness</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Table 5.2: Corner Reflector Engineering -->
+    <section class="subsystem-table-block" id="table-corner-reflector">
+      <header class="subsystem-table-header">
+        <span class="badge badge-trl-split">TRL 4–6 vs TRL 1–3</span>
+        <h3>Table 5.2: Parameters for Corner Reflectors</h3>
+        <p>
+          The optical retroreflector returns the interrogation beam to Earth.
+          The table contrasts hollow trihedral reflectors with active cat's-eye designs.
+        </p>
+      </header>
+
+      <div class="table-responsive">
+        <table class="ste-table data-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Parameter / Capability</th>
+              <th style="width: 22%;">Near-Term Baseline (TRL 4–6)</th>
+              <th style="width: 22%;">Speculative Target (TRL 1–3)</th>
+              <th style="width: 20%;">Governing Equation / Limit</th>
+              <th style="width: 18%;">Failure Mode / Vulnerability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Optical Architecture</strong></td>
+              <td>Hollow Corner-Cube Reflector with open facets</td>
+              <td>Active deformable Cat's-Eye Reflector array</td>
+              <td>Aperture area scaling, zero bulk path</td>
+              <td>Color centers in glass and structural misalignment</td>
+            </tr>
+            <tr>
+              <td><strong>Clear Aperture Diameter</strong></td>
+              <td>\(D_{\text{refl}} = 0.10 - 0.50\text{ m}\) (Rigid monolithic mount)</td>
+              <td>\(D_{\text{refl}} = 1.0 - 3.0\text{ m}\) (Segmented deployable array)</td>
+              <td>\(\Omega_{\text{refl}} \approx (\lambda / D_{\text{refl}})^2\)</td>
+              <td>Mass limit violation and vibrational dephasing</td>
+            </tr>
+            <tr>
+              <td><strong>Surface Figure Accuracy</strong></td>
+              <td>\(\lambda / 20\) (RMS roughness 53 nm at 1064 nm)</td>
+              <td>\(\lambda / 50\) (RMS roughness 21 nm at 1064 nm)</td>
+              <td>\(S \approx \exp[-(4 \pi \sigma_{\text{rms}} / \lambda)^2]\)</td>
+              <td>Diffuse scattering and Strehl ratio drop below 0.50</td>
+            </tr>
+            <tr>
+              <td><strong>Dihedral Angle Tolerance</strong></td>
+              <td>\(\delta\theta \le 0.20\text{ arcsec}\) (\(1.0\,\mu\text{rad}\) at 0.5 m)</td>
+              <td>\(\delta\theta \le 0.04\text{ arcsec}\) (Piezo-actuated mirrors)</td>
+              <td>\(\theta_{\text{split}} = 3.266 \, \delta\theta\), \(\delta\theta < 0.373 \frac{\lambda}{D}\)</td>
+              <td>Six-beam splitting and return pulse misses Earth collector</td>
+            </tr>
+            <tr>
+              <td><strong>Thermal Distortion Limit</strong></td>
+              <td>\(\Delta T \le 1.5\text{ K}\) (Fused silica substrate)</td>
+              <td>\(\Delta T \le 50.0\text{ K}\) (Ultra-low expansion glass)</td>
+              <td>\(\delta\theta = \alpha_{\text{CTE}} \Delta T\), \(\alpha_{\text{CTE}} \le 10^{-8}\text{ K}^{-1}\)</td>
+              <td>Asymmetric thermal warping of 90-degree joints</td>
+            </tr>
+            <tr>
+              <td><strong>Coating Spectral Bandwidth</strong></td>
+              <td>Chirped multilayer dielectric (1.0 to 2.5 \(\mu\text{m}\))</td>
+              <td>High-contrast metasurface grating (1.0 to 15.0 \(\mu\text{m}\))</td>
+              <td>Reflection bandwidth \(\Delta\lambda / \lambda_0\)</td>
+              <td>Doppler band mismatch and reflectivity drop below 10%</td>
+            </tr>
+            <tr>
+              <td><strong>Aberration Compensation</strong></td>
+              <td>Open-loop collinear lead alignment with sub-nrad PAT</td>
+              <td>Active piezo Dihedral Angle Offset adjustments</td>
+              <td>\(\Delta\theta_{\text{out}} \approx \frac{1+\beta}{1-\beta} \theta_{\text{in}}\)</td>
+              <td>Transverse beam walk-off and 200-fold angular deflection</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Table 5.3: Transmitting Antenna -->
+    <section class="subsystem-table-block" id="table-transmitting-antenna">
+      <header class="subsystem-table-header">
+        <span class="badge badge-trl-split">TRL 4–6 vs TRL 1–3</span>
+        <h3>Table 5.3: Parameters for Transmitting Antennas</h3>
+        <p>
+          The transmitter projects high-power optical beams across interstellar ranges.
+          The table details ground, orbit, and lunar laser array baselines.
+        </p>
+      </header>
+
+      <div class="table-responsive">
+        <table class="ste-table data-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Parameter / Capability</th>
+              <th style="width: 22%;">Near-Term Baseline (TRL 4–6)</th>
+              <th style="width: 22%;">Speculative Target (TRL 1–3)</th>
+              <th style="width: 20%;">Governing Equation / Limit</th>
+              <th style="width: 18%;">Failure Mode / Vulnerability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Array Deployment Location</strong></td>
+              <td>High-altitude mountain array with adaptive optics</td>
+              <td>Lunar farside crater or Sun-Earth L5 orbit array</td>
+              <td>Fried parameter \(r_0\), blooming number \(N_D\)</td>
+              <td>Atmospheric turbulence and severe thermal blooming</td>
+            </tr>
+            <tr>
+              <td><strong>Laser Emitter Architecture</strong></td>
+              <td>Yb-doped fiber laser master oscillator power amplifier</td>
+              <td>Free-electron laser with superconducting linac</td>
+              <td>\(P_{\text{total}} = N_{\text{elem}} P_{\text{elem}}\), \(\eta \ge 45\%\)</td>
+              <td>Optical fiber damage and phase drift instability</td>
+            </tr>
+            <tr>
+              <td><strong>Total Emitted Laser Power</strong></td>
+              <td>\(P_{\text{tx}} = 100\text{ kW} - 10\text{ MW}\) (Interrogation)</td>
+              <td>\(P_{\text{tx}} = 10\text{ GW} - 100\text{ GW}\) (Propulsion beam)</td>
+              <td>Link budget equation, \(S = \exp(-\sigma_\phi^2)\)</td>
+              <td>Space radiator area limits and power grid blackout</td>
+            </tr>
+            <tr>
+              <td><strong>Synthetic Aperture Diameter</strong></td>
+              <td>\(D_{\text{tx}} = 10\text{ m} - 100\text{ m}\) (Sparse optical baseline)</td>
+              <td>\(D_{\text{tx}} = 1.0\text{ km} - 10.0\text{ km}\) (Phased array)</td>
+              <td>Beam divergence \(\theta_{\text{div}} = 1.22 \frac{\lambda}{D_{\text{tx}}}\)</td>
+              <td>Diffraction footprint exceeds reflector diameter</td>
+            </tr>
+            <tr>
+              <td><strong>Transmission Wavelength</strong></td>
+              <td>\(\lambda_{\text{tx}} = 1064\text{ nm}\) or \(1550\text{ nm}\) (NIR band)</td>
+              <td>\(\lambda_{\text{tx}} = 532\text{ nm}\) or \(355\text{ nm}\) (UV harmonics)</td>
+              <td>Waist \(w(z) \propto \frac{\lambda z}{D}\), \(\tau \propto \lambda^{-1.7}\)</td>
+              <td>Rayleigh dust scattering and low laser efficiency</td>
+            </tr>
+            <tr>
+              <td><strong>Pointing Accuracy and Jitter</strong></td>
+              <td>\(\sigma_{\text{point}} \le 10.0\text{ nrad}\) (0.002 arcsec)</td>
+              <td>\(\sigma_{\text{point}} \le 0.10\text{ nrad}\) (0.00002 arcsec)</td>
+              <td>Jitter bound \(\sigma_{\text{point}} \le 0.10 \, \theta_{\text{div}}\)</td>
+              <td>Complete beam miss and signal loss at receiver</td>
+            </tr>
+            <tr>
+              <td><strong>Modulation Format</strong></td>
+              <td>Multi-pulse pulse-position modulation (M-PPM)</td>
+              <td>Relativistically equalized chirped spread spectrum</td>
+              <td>Slot duration \(\Delta\tau_{\text{rx}} = \Delta\tau_{\text{tx}} / D_2\)</td>
+              <td>Pulse overlap distortion and carrier dephasing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Table 5.4: Receiving Antenna -->
+    <section class="subsystem-table-block" id="table-receiving-antenna">
+      <header class="subsystem-table-header">
+        <span class="badge badge-trl-split">TRL 4–6 vs TRL 1–3</span>
+        <h3>Table 5.4: Parameters for Receiving Antennas</h3>
+        <p>
+          The receiver collects redshifted return photons from deep space.
+          The table outlines photon-bucket arrays, detectors, and chirp-tracking systems.
+        </p>
+      </header>
+
+      <div class="table-responsive">
+        <table class="ste-table data-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Parameter / Capability</th>
+              <th style="width: 22%;">Near-Term Baseline (TRL 4–6)</th>
+              <th style="width: 22%;">Speculative Target (TRL 1–3)</th>
+              <th style="width: 20%;">Governing Equation / Limit</th>
+              <th style="width: 18%;">Failure Mode / Vulnerability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Collector Aperture Baseline</strong></td>
+              <td>\(D_{\text{rx}} = 10\text{ m} - 39\text{ m}\) (Light-bucket array)</td>
+              <td>\(D_{\text{rx}} = 100\text{ m} - 500\text{ m}\) (Lunar crater array)</td>
+              <td>\(P_{\text{rx}} \propto P_{\text{tx}} \frac{A_{\text{tx}} A_{\text{refl}}^2 A_{\text{rx}}}{\lambda^4 d^4}\)</td>
+              <td>Photon-starved channel and count rate starvation</td>
+            </tr>
+            <tr>
+              <td><strong>Detected Wavelength Coverage</strong></td>
+              <td>NIR and SWIR bands (1.0 to 2.5 \(\mu\text{m}\), \(\beta < 0.4\))</td>
+              <td>MWIR, LWIR, and Sub-mm bands (3.0 \(\mu\text{m}\) to 2.5 mm)</td>
+              <td>\(\lambda_{\text{rx}} = \frac{\lambda_{\text{tx}}}{D_2} = \lambda_{\text{tx}} \frac{1+\beta}{1-\beta}\)</td>
+              <td>Detector spectral blind zone and loss of link</td>
+            </tr>
+            <tr>
+              <td><strong>Primary Detector Technology</strong></td>
+              <td>Superconducting nanowire detectors (WSi or NbN)</td>
+              <td>Deep-MWIR SNSPDs and sub-mm SIS quantum mixers</td>
+              <td>\(\eta_{\text{det}} \ge 95\%\), dark counts \(< 0.01\text{ cps}\)</td>
+              <td>Dark count saturation and thermal photon noise blinding</td>
+            </tr>
+            <tr>
+              <td><strong>Cryogenic Platform</strong></td>
+              <td>Two-stage pulse-tube cryocooler at 2.0 K</td>
+              <td>Closed-cycle Helium-3 dilution refrigerator at 0.25 K</td>
+              <td>Carnot efficiency and cryogenic cooling lift</td>
+              <td>Thermal boil-off and detector latching failure</td>
+            </tr>
+            <tr>
+              <td><strong>Chirp Tracking Architecture</strong></td>
+              <td>Ephemeris-driven step-tuned diode laser</td>
+              <td>Optical frequency comb with agile synthesizer</td>
+              <td>\(\dot{f}_{\text{rx}} = -\frac{2\alpha}{c} f_{\text{tx}} D_2^{3/2}\)</td>
+              <td>Beat note sweeps outside receiver intermediate bandwidth</td>
+            </tr>
+            <tr>
+              <td><strong>Background Noise Filter</strong></td>
+              <td>Piezoelectric Fabry-Pérot etalon (\(\Delta\nu \sim 1\text{ GHz}\))</td>
+              <td>Atomic vapor Faraday filter with sub-GHz bandwidth</td>
+              <td>\(N_{\text{noise}} \propto I_{\text{sky}} \Omega_{\text{FOV}} A_{\text{rx}} \Delta\lambda\)</td>
+              <td>Zodiacal light saturation and false alarm errors</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="callout callout-warning">
+      <h4>Technology Readiness Assessment</h4>
+      <p>
+        Near-term precursor missions at coordinate velocities up to 0.20c use existing TRL 4 to 6 components.
+        Extreme missions at coordinate velocities above 0.50c require major breakthroughs in TRL 1 to 3 systems.
+        These breakthroughs include active Dihedral Angle Offset control and multi-octave quantum heterodyne receivers.
+      </p>
+    </aside>
+  </article>
+</section>

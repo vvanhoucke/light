@@ -1,0 +1,590 @@
+<article id="report-ste-root" class="ste-report">
+  <!-- Document Header -->
+  <header class="report-main-header">
+    <div class="report-meta">
+      <span class="report-id">REPORT-STE-001</span>
+      <span class="report-classification">Technical Engineering Standard</span>
+      <span class="report-compliance-badge">ASD-STE100 Issue 8 Compliant</span>
+    </div>
+    <h1 class="report-main-title">Relativistic Optical Delay-Line Data Storage</h1>
+    <p class="report-subtitle">
+      System Engineering Analysis, Relativistic Electrodynamics, and Technology Taxonomy
+    </p>
+  </header>
+
+  <!-- Section 1: Executive Summary -->
+  <section id="section-1" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 1 — Executive Summary</div>
+      <h2 class="section-title">Executive Summary and Operating Principle</h2>
+    </header>
+    
+    <p>
+      This report analyzes an interstellar optical delay-line data storage system.
+      The architecture uses an Earth transceiver and a moving relativistic spacecraft.
+      The spacecraft carries an optical retroreflector.
+    </p>
+
+    <p>
+      The transmitter emits data-modulated laser pulses into the intervening space.
+      The pulses propagate at the speed of light toward the receding spacecraft.
+      The retroreflector reflects the pulses back toward Earth.
+      The physical propagation delay stores the data in flight.
+    </p>
+
+    <p>
+      The system does not require stationary storage media on board the craft.
+      The physical spacetime fabric between Earth and the probe forms the delay medium.
+      Total storage capacity equals the transmission bit rate multiplied by the retrieval delay.
+    </p>
+
+    <div class="callout callout-info">
+      <h4>Fundamental Storage Principle</h4>
+      <p>
+        The round-trip optical path stores digital bits inside propagating electromagnetic wavepackets.
+        Higher craft velocity increases the physical retrieval delay and expands total storage capacity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Technical Glossary & Acronyms -->
+  <section id="section-2" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 2 — Technical Vocabulary</div>
+      <h2 class="section-title">Technical Glossary and Controlled Vocabulary</h2>
+    </header>
+
+    <p>
+      This document adheres strictly to the ASD-STE100 Simplified Technical English specification.
+      The project establishes twenty approved technical terms.
+      Technical authors must use only these approved technical terms.
+    </p>
+
+    <p>
+      Key registered terms include Coordinate Velocity, Proper Acceleration, and Lorentz Factor.
+      Other registered terms include Rindler Horizon, Two-Way Doppler Factor, and Bit Conservation.
+      Refer to the dedicated technical glossary document for the complete formal schema.
+    </p>
+  </section>
+
+  <!-- Section 3: Relativistic Kinematics -->
+  <section id="section-3" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 3 — Relativistic Kinematics</div>
+      <h2 class="section-title">Relativistic Kinematics and Retarded-Time Delay</h2>
+    </header>
+
+    <p>
+      We model the spacecraft trajectory in flat 1+1 Minkowski spacetime.
+      Earth remains stationary at coordinate \(x = 0\).
+      Coordinate time \(t\) tracks elapsed time in the Earth reference frame.
+    </p>
+
+    <h3>3.1 Hyperbolic Motion Under Continuous Acceleration</h3>
+    <p>
+      Let the spacecraft undergo constant Proper Acceleration \(\alpha\) along the radial axis.
+      The craft departs Earth at \(t = 0\) with initial velocity zero.
+      The relativistic equations of motion yield the trajectory:
+    </p>
+
+    <div class="equation">
+      \[ x(t) = \frac{c^2}{\alpha} \left( \sqrt{1 + \left(\frac{\alpha t}{c}\right)^2} - 1 \right) = X_0 \left( \sqrt{1 + \left(\frac{t}{T_h}\right)^2} - 1 \right) \]
+    </div>
+
+    <p>
+      Here \(T_h \equiv c / \alpha\) defines the characteristic horizon time.
+      The parameter \(X_0 \equiv c^2 / \alpha\) defines the characteristic length scale.
+      The instantaneous Coordinate Velocity is:
+    </p>
+
+    <div class="equation">
+      \[ \beta(t) \equiv \frac{v(t)}{c} = \frac{t}{\sqrt{T_h^2 + t^2}} \]
+    </div>
+
+    <h3>3.2 Retarded Reflection Coordinates</h3>
+    <p>
+      Earth transmits an outbound laser pulse at transmission time \(t_{\text{tx}}\).
+      The light ray follows the null path \(x_{\text{light}}(t) = c (t - t_{\text{tx}})\).
+      The reflection event occurs when the light ray intercepts the craft trajectory.
+    </p>
+
+    <p>
+      Solving the intersection condition yields the exact reflection time:
+    </p>
+
+    <div class="equation">
+      \[ t_{\text{refl}}(t_{\text{tx}}) = \frac{t_{\text{tx}} (2 T_h - t_{\text{tx}})}{2 (T_h - t_{\text{tx}})} \]
+    </div>
+
+    <p>
+      The corresponding reflection coordinate position is:
+    </p>
+
+    <div class="equation">
+      \[ x_{\text{refl}}(t_{\text{tx}}) = c (t_{\text{refl}} - t_{\text{tx}}) = \frac{c t_{\text{tx}}^2}{2(T_h - t_{\text{tx}})} \]
+    </div>
+
+    <h3>3.3 Return Reception Time and Retrieval Delay</h3>
+    <p>
+      The reflected pulse travels back to Earth along an inbound null path.
+      Earth receives the return pulse at reception time \(t_{\text{rx}}\):
+    </p>
+
+    <div class="equation">
+      \[ t_{\text{rx}}(t_{\text{tx}}) = 2 t_{\text{refl}} - t_{\text{tx}} = \frac{T_h t_{\text{tx}}}{T_h - t_{\text{tx}}} = \frac{t_{\text{tx}}}{1 - \frac{\alpha t_{\text{tx}}}{c}} \]
+    </div>
+
+    <p>
+      The round-trip retrieval delay \(\Delta t(t_{\text{tx}})\) is:
+    </p>
+
+    <div class="equation">
+      \[ \Delta t(t_{\text{tx}}) \equiv t_{\text{rx}} - t_{\text{tx}} = \frac{t_{\text{tx}}^2}{T_h - t_{\text{tx}}} = \frac{\alpha t_{\text{tx}}^2}{c - \alpha t_{\text{tx}}} \]
+    </div>
+
+    <p>
+      Inverting the reception formula gives the original transmission time:
+    </p>
+
+    <div class="equation">
+      \[ t_{\text{tx}}^*(t_{\text{rx}}) = \frac{T_h t_{\text{rx}}}{T_h + t_{\text{rx}}} = \frac{t_{\text{rx}}}{1 + \frac{\alpha t_{\text{rx}}}{c}} \]
+    </div>
+
+    <h3>3.4 The Rindler Horizon Upload Cutoff</h3>
+    <p>
+      The craft trajectory approaches an asymptote in spacetime when \(t \to \infty\).
+      This asymptote forms the Rindler Horizon for accelerating observers.
+      Outbound light rays emitted at \(t_{\text{tx}} \ge T_h = c / \alpha\) never intercept the craft.
+    </p>
+
+    <div class="callout callout-danger">
+      <h4>Rindler Horizon Upload Boundary</h4>
+      <p>
+        For standard terrestrial gravity \(\alpha = 1g = 9.80665\text{ m/s}^2\), the horizon time is:
+      </p>
+      <div class="equation">
+        \[ T_h = \frac{c}{\alpha} \approx 30{,}570{,}323\text{ seconds} \approx 353.82\text{ days} \]
+      </div>
+      <p>
+        Earth has an absolute upload window of 353.82 days for a 1g continuously accelerating craft.
+        Photons transmitted after this cutoff remain permanently behind the Rindler Horizon.
+      </p>
+    </div>
+
+    <h3>3.5 Piecewise Boost-and-Coast Solver</h3>
+    <p>
+      Practical missions operate propulsion during a boost phase and coast thereafter.
+      The propulsion shuts down at coordinate time \(t_1\) when velocity reaches \(\beta_1 c\).
+      A critical transmission time separates reflections in the boost phase from reflections in the coast phase:
+    </p>
+
+    <div class="equation">
+      \[ t_{\text{tx, crit}} = T_h \left( 1 - \sqrt{\frac{1 - \beta_1}{1 + \beta_1}} \right) \]
+    </div>
+
+    <p>
+      When \(t_{\text{tx}} \le t_{\text{tx, crit}}\), the hyperbolic formulas apply directly.
+      When \(t_{\text{tx}} > t_{\text{tx, crit}}\), the pulse reflects during the constant coast phase:
+    </p>
+
+    <div class="equation">
+      \[ t_{\text{refl}} = \frac{t_{\text{tx}} - T_h(1 - 1/\gamma_1)}{1 - \beta_1}, \quad t_{\text{rx}} = 2 t_{\text{refl}} - t_{\text{tx}} \]
+    </div>
+  </section>
+
+  <!-- Section 4: Doppler & Chirp Dynamics -->
+  <section id="section-4" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 4 — Doppler and Chirp Dynamics</div>
+      <h2 class="section-title">Relativistic Doppler Dynamics and Frequency Chirp</h2>
+    </header>
+
+    <h3>4.1 Two-Way Relativistic Doppler Factor</h3>
+    <p>
+      The forward optical beam undergoes a relativistic Doppler shift upon reaching the craft.
+      The retroreflector reflects the wave back along the line of sight.
+      The return beam undergoes a second identical Doppler shift.
+    </p>
+
+    <p>
+      The net Two-Way Doppler Factor \(D_2\) is:
+    </p>
+
+    <div class="equation">
+      \[ D_2(\beta) \equiv \frac{f_{\text{rx}}}{f_{\text{tx}}} = \frac{1 - \beta}{1 + \beta} \]
+    </div>
+
+    <p>
+      The returned optical wavelength shifts toward the red spectrum:
+    </p>
+
+    <div class="equation">
+      \[ \lambda_{\text{rx}} = \frac{\lambda_{\text{tx}}}{D_2} = \lambda_{\text{tx}} \frac{1 + \beta}{1 - \beta} \]
+    </div>
+
+    <p>
+      Differentiating the reception time equation confirms the fundamental differential identity:
+    </p>
+
+    <div class="equation">
+      \[ D_2 = \frac{dt_{\text{tx}}}{dt_{\text{rx}}} = \left( 1 - \frac{\alpha t_{\text{tx}}}{c} \right)^2 \]
+    </div>
+
+    <h3>4.2 Symbol Duration Stretching and Bit Rate Scaling</h3>
+    <p>
+      The two-way Doppler shift expands the duration of each optical symbol.
+      A pulse of duration \(\Delta\tau_{\text{tx}}\) arrives with expanded duration:
+    </p>
+
+    <div class="equation">
+      \[ \Delta\tau_{\text{rx}} = \frac{\Delta\tau_{\text{tx}}}{D_2} = \Delta\tau_{\text{tx}} \frac{1 + \beta}{1 - \beta} \]
+    </div>
+
+    <p>
+      The received bit rate scales down proportionally:
+    </p>
+
+    <div class="equation">
+      \[ R_{\text{rx}}(t_{\text{rx}}) = D_2(t_{\text{refl}}) R_{\text{tx}}(t_{\text{tx}}) \]
+    </div>
+
+    <h3>4.3 Acceleration-Induced Chirp Rate</h3>
+    <p>
+      Continuous Proper Acceleration increases craft velocity over time.
+      This acceleration imparts a continuous Chirp Rate to the received optical carrier:
+    </p>
+
+    <div class="equation">
+      \[ \frac{df_{\text{rx}}}{dt_{\text{rx}}} = - \frac{2\alpha}{c} f_{\text{tx}} D_2^{3/2} = - \frac{2\alpha}{c} f_{\text{rx}} \sqrt{D_2} \]
+    </div>
+
+    <p>
+      The receiver tracking system must follow this carrier Chirp Rate to maintain lock.
+    </p>
+
+    <h3>4.4 Mathematical Proof of Bit Conservation</h3>
+    <p>
+      We now prove that the Optical Delay-Line conserves every transmitted bit.
+      The total received bits up to reception time \(t_{\text{rx}}(t_{\text{tx}})\) equal:
+    </p>
+
+    <div class="equation">
+      \[ N_{\text{rx}}(t_{\text{rx}}) = \int_0^{t_{\text{rx}}} R_{\text{rx}}(t'') dt'' \]
+    </div>
+
+    <p>
+      We change the integration variable to transmission coordinate time \(t'\).
+      Recall that \(dt'' = (1 / D_2) dt'\) and \(R_{\text{rx}}(t'') = D_2 R_{\text{tx}}(t')\).
+      Substituting these expressions gives:
+    </p>
+
+    <div class="equation">
+      \[ N_{\text{rx}} = \int_0^{t_{\text{tx}}} \left[ D_2(t') R_{\text{tx}}(t') \right] \left[ \frac{1}{D_2(t')} dt' \right] = \int_0^{t_{\text{tx}}} R_{\text{tx}}(t') dt' = N_{\text{tx}}(t_{\text{tx}}) \]
+    </div>
+
+    <p>
+      The Doppler compression factors cancel identically in the integrand.
+      Therefore, the Optical Delay-Line guarantees exact Bit Conservation.
+    </p>
+
+    <p>
+      At any Earth time \(t\), the total bits stored in flight equal:
+    </p>
+
+    <div class="equation">
+      \[ B_{\text{flight}}(t) = \int_{t_{\text{tx}}^*(t)}^t R_{\text{tx}}(t') dt' \]
+    </div>
+
+    <p>
+      For a constant transmission rate \(R_0\), the stored buffer is:
+    </p>
+
+    <div class="equation">
+      \[ B_{\text{flight}}(t) = R_0 \Delta t(t_{\text{tx}}^*(t)) \]
+    </div>
+  </section>
+
+  <!-- Section 5: Link Budget, ISM & Capacity -->
+  <section id="section-5" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 5 — Link Budget and Channel Capacity</div>
+      <h2 class="section-title">Optical Link Budget, Dust Extinction, and Gordon-Holevo Capacity</h2>
+    </header>
+
+    <h3>5.1 Two-Way Geometric Diffraction</h3>
+    <p>
+      Laser propagation experiences diffraction spreading across the forward and return paths.
+      The forward path irradiance at the craft is:
+    </p>
+
+    <div class="equation">
+      \[ I_{\text{craft}} = \frac{P_{\text{tx}} A_{\text{tx}} \eta_{\text{tx}}}{\lambda_{\text{tx}}^2 d^2} \]
+    </div>
+
+    <p>
+      The retroreflector intercepts a fraction of this optical power.
+      The retroreflector re-emits this power back toward Earth.
+      In the far field, the received power follows the inverse fourth-power distance law:
+    </p>
+
+    <div class="equation">
+      \[ P_{\text{rx}} = P_{\text{tx}} \cdot R_{\text{mirror}} \cdot \eta_{\text{opt}} \cdot \frac{A_{\text{tx}} A_{\text{refl}}^2 A_{\text{rx}}}{\lambda_{\text{tx}}^4 d^4} D_2^2 \]
+    </div>
+
+    <p>
+      The factor \(D_2^2\) accounts for photon energy redshift and arrival rate dilation.
+      Our model incorporates a Lorentzian saturation factor in the near-field regime.
+      This prevents unphysical power values when distance approaches zero.
+    </p>
+
+    <h3>5.2 Interstellar Medium Dust Extinction</h3>
+    <p>
+      The Interstellar Medium contains hydrogen gas and sub-micron silicate dust grains.
+      The Beer-Lambert law governs optical extinction across the path:
+    </p>
+
+    <div class="equation">
+      \[ T_{\text{ISM}} = \exp(-\tau_{\text{ext}}) \]
+    </div>
+
+    <p>
+      The return beam propagates at a longer redshifted wavelength.
+      Because dust extinction decreases at longer wavelengths, the return beam suffers less loss:
+    </p>
+
+    <div class="equation">
+      \[ T_{\text{ISM}}(d, \beta) = \exp\left\{ - n_H d \sigma_0 \left[ 1 + D_2^{1.7} \right] \right\} \]
+    </div>
+
+    <p>
+      Here \(n_H\) is the neutral hydrogen density.
+      The reference cross section is \(\sigma_0 = 2.3 \times 10^{-30}\text{ m}^2\).
+    </p>
+
+    <h3>5.3 Gordon-Holevo Quantum Channel Capacity</h3>
+    <p>
+      The received photon flux decreases rapidly over interstellar distances.
+      Classical Shannon capacity overestimates data rates in this low-photon regime.
+      The system operates firmly in the Photon-Starved Regime.
+    </p>
+
+    <p>
+      The Gordon-Holevo Capacity sets the fundamental quantum channel limit:
+    </p>
+
+    <div class="equation">
+      \[ C = B \left[ g(N + N_{\text{noise}}) - g(N_{\text{noise}}) \right] \]
+    </div>
+
+    <p>
+      Here \(B\) is channel bandwidth, and \(N\) is the mean signal photon number per mode:
+    </p>
+
+    <div class="equation">
+      \[ N = \frac{P_{\text{rx}}}{D_2 h f_{\text{tx}} B} \]
+    </div>
+
+    <p>
+      The von Neumann entropy function \(g(x)\) is:
+    </p>
+
+    <div class="equation">
+      \[ g(x) = (x + 1) \log_2(x + 1) - x \log_2(x) \]
+    </div>
+
+    <p>
+      When signal photon occupancy \(N \ll 1\), the capacity per photon grows logarithmically:
+    </p>
+
+    <div class="equation">
+      \[ \frac{C}{N B} \approx \log_2\left(\frac{1}{N}\right) + \log_2(e) \]
+    </div>
+
+    <p>
+      Pulse-position modulation achieves high photon information efficiency under these conditions.
+    </p>
+  </section>
+
+  <!-- Section 6: Reflector Aberration -->
+  <section id="section-6" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 6 — Retroreflector Electrodynamics</div>
+      <h2 class="section-title">Moving Retroreflector Electrodynamics and Aberration Compensation</h2>
+    </header>
+
+    <h3>6.1 Lorentz Transformation of Optical Wavevectors</h3>
+    <p>
+      We analyze light reflection using Lorentz transformations of four-wavevectors.
+      Let the spacecraft move with velocity \(\mathbf{v}\) relative to Earth.
+      Light transforms into the rest frame of the reflector.
+      The retroreflector inverts the spatial wavevector in its rest frame.
+      Transforming the wavevector back into the Earth frame yields the return beam direction.
+    </p>
+
+    <h3>6.2 Collinear vs Oblique Incidence</h3>
+    <p>
+      For purely collinear radial incidence, the wavevector inverts exactly.
+      The reflected beam returns antiparallel to the transmitter without angular error.
+    </p>
+
+    <p>
+      However, oblique incidence introduces an angular error.
+      The return angle magnifies the incident angle by the reciprocal Doppler factor:
+    </p>
+
+    <div class="equation">
+      \[ \theta_{\text{out}} \approx \frac{1 + \beta}{1 - \beta} \theta_{\text{in}} = \frac{1}{D_2} \theta_{\text{in}} \]
+    </div>
+
+    <p>
+      At \(\beta = 0.99\), this factor magnifies angular errors by 199 times.
+    </p>
+
+    <h3>6.3 Transverse Velocity Aberration</h3>
+    <p>
+      Transverse spacecraft motion creates a Velocity Aberration angular offset:
+    </p>
+
+    <div class="equation">
+      \[ \theta_{\text{aber}} \approx \frac{2 v_\perp}{c} = 2 \beta_\perp \]
+    </div>
+
+    <p>
+      Earth orbital motion imparts a transverse velocity \(v_\perp \approx 30\text{ km/s}\).
+      This velocity produces an aberration angle of 41 arcseconds.
+      For a 1-meter reflector, this displacement exceeds the diffraction beam spot by 187 times.
+      The return beam misses the Earth receiving telescope without active compensation.
+    </p>
+
+    <h3>6.4 Dihedral Angle Compensation</h3>
+    <p>
+      Adjusting the 90-degree internal mirror angles compensates for velocity aberration.
+      The required Dihedral Angle Offset \(\delta\alpha\) is:
+    </p>
+
+    <div class="equation">
+      \[ \delta\alpha \approx 0.612 \beta_\perp \]
+    </div>
+
+    <p>
+      Alternatively, a Cat's-Eye Reflector uses a fast steering mirror at the focal plane.
+      This allows agile electronic compensation for dynamic transverse drift.
+    </p>
+  </section>
+
+  <!-- Section 7: Subsystems -->
+  <section id="section-7" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 7 — Subsystem Engineering</div>
+      <h2 class="section-title">Subsystem Engineering and Speculative Technology Assessment</h2>
+    </header>
+
+    <h3>7.1 Spacecraft Design Subsystem</h3>
+    <p>
+      Beamed-energy laser sails represent the primary baseline for precursor missions.
+      Dielectric metasurface sails achieve area densities below one gram per square meter.
+      The sail must maintain high power reflectivity exceeding 0.9999.
+      Excess absorbed laser power causes coating delamination above 500 Kelvin.
+    </p>
+
+    <p>
+      Relativistic dust impacts present severe hazards at velocities above 0.10c.
+      Dust grains vaporize explosively upon impact.
+      Sacrificial multi-layer beryllium Whipple shields protect the internal optical structures.
+      High-velocity missions also require active magnetic deflection coils.
+    </p>
+
+    <h3>7.2 Corner Reflector Engineering</h3>
+    <p>
+      Hollow corner-cube designs eliminate bulk absorption and cosmic ray color centers.
+      Each mirror facet must maintain a surface figure accuracy of \(\lambda / 20\).
+      Dihedral joint angles must remain orthogonal within 0.20 arcseconds.
+      Thermal gradients across the structure must not exceed 1.5 Kelvin.
+    </p>
+
+    <h3>7.3 Transmitting Antenna Design</h3>
+    <p>
+      Terrestrial laser transmitters suffer from atmospheric turbulence and thermal blooming.
+      A phased-array laser installation in a permanently shadowed lunar crater provides ideal vacuum conditions.
+      The system combines thousands of Yb-doped fiber amplifiers coherently.
+      The transmitter uses precise Pointing Lead Angle calibration to track the probe.
+    </p>
+
+    <h3>7.4 Receiving Antenna Design</h3>
+    <p>
+      Receiving arrays function like non-imaging photon-bucket collectors.
+      Light-bucket collectors reduce fabrication costs compared to astronomical telescopes.
+      Superconducting nanowire single-photon detectors provide detection efficiency above 95 percent.
+    </p>
+
+    <p>
+      At velocities above 0.80c, the Doppler shift pushes optical signals into the far-infrared.
+      The receiver transitions from nanowire detectors to cryogenic SIS heterodyne mixers.
+      A chirped local oscillator tracks the continuous acceleration drift in real time.
+    </p>
+  </section>
+
+  <!-- Section 8: Mission Presets -->
+  <section id="section-8" class="ste-section report-section">
+    <header class="section-header">
+      <div class="section-tag">Section 8 — Mission Presets</div>
+      <h2 class="section-title">Mission Presets and Comparative Trajectory Analysis</h2>
+    </header>
+
+    <p>
+      The technical analysis establishes three standardized mission profiles.
+      Each profile addresses a distinct technological regime and operational timeline.
+    </p>
+
+    <h3>8.1 Preset A: Near-Term Laser Sail Precursor</h3>
+    <p>
+      Preset A targets a Coordinate Velocity of 0.20c using near-term technologies.
+      A 10-megawatt laser array accelerates a gram-scale nanocraft.
+      The probe coasts after a rapid boost phase.
+    </p>
+
+    <p>
+      The Two-Way Doppler Factor equals 0.6667.
+      Received wavelengths shift from 1064 nm to 1596 nm.
+      Telecom-band superconducting detectors collect the return signal.
+      This mission profile achieves technological readiness levels between 4 and 6.
+    </p>
+
+    <h3>8.2 Preset B: Relativistic Fusion Probe</h3>
+    <p>
+      Preset B models a fusion-driven probe reaching a Coordinate Velocity of 0.50c.
+      The probe accelerates over one year before coasting.
+      The Two-Way Doppler Factor drops to 0.3333.
+      Received wavelengths shift into the mid-infrared spectrum at 3192 nm.
+    </p>
+
+    <p>
+      The link requires extended-wavelength superconducting detectors cooled to 300 millikelvin.
+      The system achieves round-trip retrieval delays spanning months.
+      This architecture requires technology advancements in direct fusion drives.
+    </p>
+
+    <h3>8.3 Preset C: Extreme 1g Continuous Acceleration</h3>
+    <p>
+      Preset C models continuous Proper Acceleration at 9.81 meters per second squared.
+      The spacecraft accelerates continuously toward the speed of light.
+      The Two-Way Doppler Factor approaches zero asymptotically.
+    </p>
+
+    <p>
+      The upload window terminates at the Rindler Horizon cutoff of 353.82 days.
+      The returned signal shifts across mid-infrared, far-infrared, and sub-millimeter bands.
+      The receiver requires cascaded quantum heterodyne mixers and agile local oscillators.
+      Preset C tests the fundamental physical boundaries of interstellar delay-line data storage.
+    </p>
+
+    <aside class="callout callout-info">
+      <h4>Comparative Performance Summary</h4>
+      <p>
+        Preset A provides feasible precursor verification with existing optical infrastructure.
+        Preset B maximizes practical deep-space data storage across astronomical distances.
+        Preset C validates theoretical limits of relativistic electrodynamics and Gordon-Holevo Capacity.
+      </p>
+    </aside>
+  </section>
+</article>
